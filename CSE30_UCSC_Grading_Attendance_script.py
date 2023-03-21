@@ -15,6 +15,7 @@ url=""
 username=""
 cruzid=""
 ta_name=""
+number_of_students=""
 driver.get(url)
 message = driver.find_element(By.ID,"username")
 message.send_keys(username)
@@ -30,7 +31,7 @@ time.sleep(20)
 counter=0
 
 
-for i in range(354):
+for i in range(number_of_students):
 
 
     driver.save_screenshot("exp2.png")

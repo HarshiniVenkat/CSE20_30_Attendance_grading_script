@@ -49,6 +49,9 @@ for i in range(number_of_students):
         #submit_button.click()
         
 
+
+##################        FOR INSTANCE          #####################################       
+#    elif(name_finder_ta.find('Harshini')!=-1 or name_finder_ta.find('harshini')!=-1 or name_finder_ta.find('Venkataraman')!=-1 or name_finder_ta.find("venkataraman")!=-1):
     elif(name_finder_ta.find(ta_name)!=-1:
 
         push_notif=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[3]/div[2]/div[1]/label/input")
@@ -67,19 +70,13 @@ for i in range(number_of_students):
         else:
 
             push_notif.send_keys("1")
-        # submit_button=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[4]/form/div[4]/div[2]/button")
-        # submit_button.click()
-        # counter+=1
 
 
     next_button=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/nav/form/div/div[2]/div[2]/button[2]")
     next_button.click()
     time.sleep(3)
 
-# /html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[2]/div[1]/div[1]/label
-# /html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[2]/div[1]/div[1]/text()
-#push_notif.click()
-#push_notif.send_keys("1")
+
 # submission= driver.find_elements(By.CSS_SELECTOR, "p")
 #                                          /html/body/div[3]/div[2]/div[2]/div/div[1]/div/div[2]
 # print(len(submission))

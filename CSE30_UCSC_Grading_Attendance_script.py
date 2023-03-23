@@ -9,7 +9,6 @@ from PIL import Image
 import pytesseract
 
 
-
 driver=webdriver.Chrome("./chromedriver")
 url=""
 username=""
@@ -24,35 +23,25 @@ psw.send_keys(cruzid)
 button = driver.find_element(By.NAME, "_eventId_proceed")
 button.click()
 
-# element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div[2]/p[1]'))
-# WebDriverWait(driver, 45).until(element_present)
-
 time.sleep(20)
 counter=0
 
-
 for i in range(number_of_students):
-
-
-    driver.save_screenshot("exp2.png")
+    driver.save_screenshot("temp.png")
     name_finder_ta=pytesseract.image_to_string(Image.open('exp2.png'))
 
-    #print(name_finder_ta)
     if(name_finder_ta.find("not have a submission for")!=-1):
         push_notif=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[3]/div[2]/div[1]/label/input")
         if(push_notif.get_attribute('value')=="0"):
             pass
-        #push_notif.clear()
         else:
             push_notif.send_keys("0")
-            #submit_button=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[4]/form/div[4]/div[2]/button")
-        #submit_button.click()
-        
+
 
 
 ##################        FOR INSTANCE          #####################################       
 #    elif(name_finder_ta.find('Harshini')!=-1 or name_finder_ta.find('harshini')!=-1 or name_finder_ta.find('Venkataraman')!=-1 or name_finder_ta.find("venkataraman")!=-1):
-    elif(name_finder_ta.find(ta_name)!=-1:
+    elif(name_finder_ta.find(ta_name))!=-1:
 
         push_notif=driver.find_element(By.XPATH,"/html/body/div[3]/div[2]/div[2]/div/div[1]/div/div/section/div[2]/div[3]/div/div[3]/div[2]/div[1]/label/input")
         #push_notif.clear()
@@ -77,11 +66,6 @@ for i in range(number_of_students):
     time.sleep(3)
 
 
-# submission= driver.find_elements(By.CSS_SELECTOR, "p")
-#                                          /html/body/div[3]/div[2]/div[2]/div/div[1]/div/div[2]
-# print(len(submission))
-# for s in submission:
-#     print(s.text)
 print(counter)
 driver.close()
 
